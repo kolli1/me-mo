@@ -1,0 +1,16 @@
+{
+  "short_name": "me&mo Hub",
+  "name": "me&mo Operations Hub",
+  "icons": [
+    {
+      "src": "[https://cdn-icons-png.flaticon.com/512/1042/1042308.png](https://cdn-icons-png.flaticon.com/512/1042/1042308.png)",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#fc8019"
+}
