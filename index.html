@@ -4,27 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>me&mo Hub</title>
+    
     <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#fc8019">
+
     <style>
         :root { --me-orange: #fc8019; --me-blue: #0056b3; --bg: #fdfdfd; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
-        .logo { text-align: center; margin-bottom: 40px; font-size: 2.5rem; font-weight: 800; color: var(--me-blue); }
-        .logo span { color: var(--me-orange); }
-        .menu-container { width: 90%; max-width: 360px; display: grid; gap: 15px; }
-        .card { background: white; padding: 25px; border-radius: 20px; text-decoration: none; display: flex; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.1s; }
-        .card:active { transform: scale(0.96); }
-        .icon { font-size: 1.5rem; margin-right: 15px; padding: 10px; border-radius: 12px; width: 40px; text-align: center; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg); 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+        }
+        
+        .logo-container { text-align: center; margin-bottom: 40px; }
+        .brand-logo { font-size: 2.5rem; font-weight: 800; color: var(--me-blue); letter-spacing: -2px; }
+        .brand-logo span { color: var(--me-orange); }
+        .tagline { font-size: 0.75rem; color: #95a5a6; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
+
+        .menu-container { width: 100%; max-width: 360px; display: grid; gap: 15px; }
+
+        /* The Menu Cards */
+        .menu-card { 
+            background: #ffffff; 
+            padding: 22px; 
+            border-radius: 18px; 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            transition: all 0.2s;
+        }
+
+        .menu-card:active { transform: scale(0.97); background-color: #f9f9f9; }
+
+        .icon-circle { 
+            width: 50px; height: 50px; border-radius: 12px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 1.5rem; margin-right: 18px;
+        }
+        
+        .bg-stock { background: #fff2e8; }
+        .bg-sales { background: #eef6ff; }
+
+        .text-group { display: flex; flex-direction: column; }
         .title { font-weight: 700; color: #2c3e50; font-size: 1.1rem; }
+        .subtitle { font-size: 0.8rem; color: #95a5a6; margin-top: 2px; }
+
+        .footer { margin-top: 50px; font-size: 0.7rem; color: #bdc3c7; font-weight: 500; }
     </style>
 </head>
 <body>
-    <div class="logo">me<span>&</span>mo</div>
-    <div class="menu-container">
-        <a href="stock.html" class="card"><span class="icon" style="background:#fff2e8">📦</span><span class="title">Stock Inventory</span></a>
-        <a href="sales.html" class="card"><span class="icon" style="background:#eef6ff">📊</span><span class="title">Sales Logger</span></a>
+
+    <div class="logo-container">
+        <div class="brand-logo">me<span>&</span>mo</div>
+        <div class="tagline">Operations Hub</div>
     </div>
-    <script>if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+
+    <div class="menu-container">
+        <a href="stock.html" class="menu-card">
+            <div class="icon-circle bg-stock">📦</div>
+            <div class="text-group">
+                <span class="title">Stock Inventory</span>
+                <span class="subtitle">Daily closing & low alerts</span>
+            </div>
+        </a>
+
+        <a href="sales.html" class="menu-card">
+            <div class="icon-circle bg-sales">📊</div>
+            <div class="text-group">
+                <span class="title">Sales Logger</span>
+                <span class="subtitle">Log Store, Swiggy & Zomato</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="footer">PROPERTY OF ME&MO JAPANESE MOCHI ICE CREAM</div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
