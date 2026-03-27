@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>me&mo Hub</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        :root { --me-orange: #fc8019; --me-blue: #0056b3; --bg: #fdfdfd; }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+        .logo { text-align: center; margin-bottom: 40px; font-size: 2.5rem; font-weight: 800; color: var(--me-blue); }
+        .logo span { color: var(--me-orange); }
+        .menu-container { width: 90%; max-width: 360px; display: grid; gap: 15px; }
+        .card { background: white; padding: 25px; border-radius: 20px; text-decoration: none; display: flex; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .icon { font-size: 1.5rem; margin-right: 15px; padding: 10px; border-radius: 12px; }
+        .title { font-weight: 700; color: #2c3e50; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <div class="logo">me<span>&</span>mo</div>
+    <div class="menu-container">
+        <a href="stock.html" class="card"><span class="icon" style="background:#fff2e8">📦</span><span class="title">Stock Inventory</span></a>
+        <a href="sales.html" class="card"><span class="icon" style="background:#eef6ff">📊</span><span class="title">Sales Logger</span></a>
+    </div>
+    <script>if('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+</body>
+</html>
