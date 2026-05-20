@@ -24,7 +24,7 @@
     </div>
     <a href="index.html" class="back-btn">← BACK TO HUB</a>
     <script>
-        const skus = ["Vanilla", "Chocolate", "Strawberry", "Mango", "Grape", "Muskmelon", "Brownie", "Coconut", "Paan", "Matcha", "Sesame"];
+        const skus = ["Vanilla", "Chocolate", "Strawberry", "Mango", "Grape", "Muskmelon", "Brownie", "Coconut", "Matcha", "Sesame"];
         const cont = document.getElementById('cont');
         skus.forEach(s => {
             cont.innerHTML += `<div class="stock-row"><span>${s}</span><input type="number" class="qty" data-sku="${s}" placeholder="0" oninput="parseInt(this.value)<10?this.classList.add('low'):this.classList.remove('low')"></div>`;
