@@ -24,7 +24,7 @@
     </div>
     <a href="index.html" class="back-btn">← BACK TO HUB</a>
     <script>
-        const skus = ["Vanilla", "Chocolate", "Strawberry", "Mango", "Grape", "Muskmelon", "Brownie", "Coconut", "Matcha", "Sesame"];
+        const skus = ["Vanilla", "Chocolate", "Strawberry", "Mango", "Grape", "Muskmelon", "Brownie", "Coconut", "Matcha", "Sesame", "Biscoff"];
         const cont = document.getElementById('cont');
         skus.forEach(s => {
             cont.innerHTML += `<div class="stock-row"><span>${s}</span><input type="number" class="qty" data-sku="${s}" placeholder="0" oninput="parseInt(this.value)<10?this.classList.add('low'):this.classList.remove('low')"></div>`;
@@ -34,7 +34,8 @@
             let table = "```", low = [];
             document.querySelectorAll('.qty').forEach(i => {
                 let v = i.value || "0";
-                table += `${i.dataset.sku.padEnd(12)}: ${v.padStart(3)}\n`;
+                // Adjusted padding size from 12 to 16 for perfect vertical alignment
+                table += `${i.dataset.sku.padEnd(16)}: ${v.padStart(3)}\n`;
                 if(parseInt(v) < 10 && i.value !== "") low.push(i.dataset.sku.toUpperCase());
             });
             let msg = `📦 *STOCK REPORT*\nTime: ${now}\n\n${table}\`\`\`\n`;
