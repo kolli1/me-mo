@@ -31,7 +31,7 @@
     </div>
     <a href="index.html" style="margin-top:20px; color:#95a5a6; text-decoration:none; font-weight:600; font-size:0.9rem;">← BACK TO HUB</a>
     <script>
-        const skus = ["Vanilla", "Chocolate", "Strawberry", "Mango", "Grape", "Muskmelon", "Brownie", "Coconut", "Matcha", "Sesame"];
+        const skus = ["Vanilla", "Chocolate", "Strawberry", "Mango", "Grape", "Muskmelon", "Brownie", "Coconut", "Matcha", "Sesame", "Biscoff"];
         let p = "Store";
         let salesData = { Store: {}, Swiggy: {}, Zomato: {} };
 
@@ -56,10 +56,14 @@
                 let subTotal = 0, table = "";
                 skus.forEach(s => { 
                     let v = parseInt(salesData[plat][s] || 0); 
-                    if(v > 0) { table += `${s.padEnd(12)}: ${v}\n`; subTotal += v; } 
+                    if(v > 0) { 
+                        // Clean monospace fixed column padding up to 16 characters
+                        table += `${s.padEnd(16)}: ${String(v).padStart(3)}\n`; 
+                        subTotal += v; 
+                    } 
                 });
                 if(subTotal > 0) { 
-                    msg += `*${plat.toUpperCase()}*\n\`\`\`${table}\`\`\`Subtotal: ${subTotal}\n\n`; 
+                    msg += `*${plat.toUpperCase()}*\n\`\`\`${table}\`\`\`Subtotal: ${subTotal} units\n\n`; 
                     grandTotal += subTotal; 
                 }
             });
